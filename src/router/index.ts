@@ -1,32 +1,50 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
-// 这个文件用于设置路由 定义每个路由 其中每个path需要对应一个component
+import HomePage from '@/pages/HomePage.vue'
+import UserLoginPage from '@/pages/user/UserLoginPage.vue'
+import UserRegisterPage from '@/pages/user/UserRegisterPage.vue'
+import UserManagePage from '@/pages/admin/UserManagePage.vue'
+import AppManagePage from '@/pages/admin/AppManagePage.vue'
+import AppChatPage from '@/pages/app/AppChatPage.vue'
+import AppEditPage from '@/pages/app/AppEditPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      // 懒加载 在实际打包部署的时候会分开打包加载 速度更快
-      component: () => import('@/pages/HomePage.vue'),
+      name: '主页',
+      component: HomePage,
     },
     {
       path: '/user/login',
       name: '用户登录',
-      component: () => import('@/pages/user/UserLoginPage.vue'),
+      component: UserLoginPage,
     },
     {
       path: '/user/register',
       name: '用户注册',
-      component: () => import('@/pages/user/UserRegisterPage.vue'),
+      component: UserRegisterPage,
     },
     {
-      path: '/admin/userManager',
+      path: '/admin/userManage',
       name: '用户管理',
-      component: () => import('@/pages/admin/UserManagerPage.vue'),
+      component: UserManagePage,
     },
-
+    {
+      path: '/admin/appManage',
+      name: '应用管理',
+      component: AppManagePage,
+    },
+    {
+      path: '/app/chat/:id',
+      name: '应用对话',
+      component: AppChatPage,
+    },
+    {
+      path: '/app/edit/:id',
+      name: '编辑应用',
+      component: AppEditPage,
+    },
   ],
 })
 

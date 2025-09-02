@@ -94,9 +94,14 @@ const originItems = ([
     title: '关于我们',
   },
   {
-    key: '/admin/userManager',
+    key: '/admin/userManage',
     label: '用户管理',
     title: '用户管理',
+  },
+  {
+    key: '/admin/appManage',
+    label: '应用管理',
+    title: '应用管理',
   },
   {
     key: 'others',
